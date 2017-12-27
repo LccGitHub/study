@@ -1,0 +1,2432 @@
+
+html{  
+    background-color:#0D1C30;
+    margin: 0;  
+    padding: 0;  
+    height: 100%;  
+    width: 100%;  
+} 
+#configbody
+{
+    background-color:#0D1C30;
+    margin: 0;  
+    padding: 0;  
+    height: 100%;  
+    width: 100%; 
+}
+.container
+{
+    padding-top:35px;
+}
+
+.col-center-block {
+    margin-left:0%; 
+    
+    display: block;  
+   
+}  
+
+.control-label
+{
+
+}
+.form-control
+{
+    display: inline;  
+}
+.displayText
+{
+    font-size:115%;
+    color:#D3D3D3;
+    margin-left:33%; 
+    margin-bottom: 10px;
+}
+
+.brr
+{   
+    margin-left:32.5%; 
+    width:1px;
+}
+
+/*------------------------------------------------*/
+/*input */
+/*------------------------------------------------*/
+.input
+{
+  font-size:12px;
+  width:320px; height:45px;
+  margin-bottom: 15px;
+  background-color : rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  border: 2px solid hsla(0, 0%, 100%, 0.57);
+      color:#D3D3D3;
+  box-shadow: 0px 0px 20px  rgba(255, 255, 255, .4),
+              inset 0px 0px 20px  rgba(255, 255, 255, .4);
+}
+
+.input:disabled
+{
+  font-size:12px;
+  background-color : rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  border: 2px solid hsla(0, 0%, 100%, 0.57);
+  color:#D3D3D3;
+  box-shadow: 0px 0px 20px  rgba(255, 255, 255, .4),
+              inset 0px 0px 20px  rgba(255, 255, 255, .4);
+
+}
+
+/*------------------------------------------------*/
+/*button*/
+/*------------------------------------------------*/
+.btn{
+    font-size:130%;
+    border-radius: 55px;
+    color: white;
+    box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.57);
+    background-color:rgba(255,255,255,0.12);
+    border: 0;
+    font-family: robotoLight;
+    width:100px; height:40px;
+    outline: 0;
+}
+
+.btn:disabled{
+    font-size:130%;
+    border-radius: 55px;
+    color: white;
+    box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.57);
+    background-color:rgba(255,255,255,0.12);
+    border: 0;
+    font-family: robotoLight;
+    outline: 0;
+}
+
+.btn-edit{
+ 
+  box-shadow: 0px 0px 20px  rgba(255, 255, 255, .4),
+              0 0 0 2px hsla(0, 0%, 100%, 0.57),
+              inset 0px 0px 20px  rgba(255, 255, 255, .4);
+}
+
+.btn:hover:enabled ,.btn:active:enabled ,.btn:focus:enabled{
+	background-color:rgba(8, 157, 210, 0.8);
+	box-shadow:
+	0 0 0 2px hsla(0, 0%, 100%, 0.57),
+	0 0 0 8px rgba(8, 157, 210, 0.2),
+	0 0 0 16px rgba(8, 157, 210, 0.2);
+  outline:0;
+}
+
+.Change1
+{
+    margin-left:20px; 
+    width:100px; height:40px;
+    color: #00FFFF;
+
+}
+.buttonOK
+{
+    position:fixed;
+    top:360px;
+    margin-left:220px;
+    width:160px; height:40px;
+    color: #00FFFF;
+}
+
+.buttonCancel:enabled {
+    position:fixed;
+    top:360px;
+    width:160px; height:40px;
+}
+
+/*------------------------------------------------*/
+.rename
+{
+    cursor: pointer;
+    color: #F5DEB3;
+}
+
+.renameOk
+{ 
+    margin-top:15px;
+    cursor: pointer;
+}
+
+.renameOff
+{
+    margin-top:15px;
+    cursor: pointer;
+}
+
+.changePW
+{
+    cursor: pointer;   
+}
+
+.changePwOK
+{ 
+    margin-top:15px;
+    cursor: pointer;
+}
+
+.changePwOff
+{
+    margin-top:15px;
+    cursor: pointer;
+}
+
+.promptInfo
+{
+ 
+}
+
+.promptInfo1
+{
+    margin-left:33%; 
+    width:1px;
+}
+
+.promptInfo2
+{
+    margin-left:30%; 
+}
+
+#language-WIFI
+{
+    top:35px;
+}
+
+#language-WIFISSID
+{
+    top:35px;
+}
+
+#prompt
+{  
+    position:fixed;
+    top:325px;
+    font-size:80%;
+}
+
+#NewSsidIncorrect
+{  
+    position:fixed;
+    top:345px;
+    display: none;
+    margin-left:33%;
+}
+
+#NewPwdIncorrect
+{
+    position:fixed;
+    top:345px;
+    display: none;
+    margin-left:35%;
+}
+
+#TwoPwdNotSame
+{ 
+    position:fixed;
+    top:345px;
+    display: none;
+    margin-left:32%;
+}
+
+#mask{
+    background: #0D1C30;
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+    opacity: 0.75;
+    filter:alpha(opacity=75);
+    z-index: 1002;
+    display:none;
+}
+
+#mask1{
+    background: #0D1C30;
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+    opacity:1;
+    filter:alpha(opacity=1);
+    z-index: 1002;
+    display:none;
+}
+.changeBtnOK
+{
+    width:110px; height:32px;
+    font-size:100%;
+    border-radius: 55px;
+    color: #00FFFF;
+    box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.57);
+    background-color:rgba(255,255,255,0.12);
+    border: 0;
+    font-family: robotoLight;
+    outline: 0;
+
+    box-shadow: 0px 0px 20px  rgba(255, 255, 255, .4),
+                0 0 0 2px hsla(0, 0%, 100%, 0.57),
+                inset 0px 0px 20px  rgba(255, 255, 255, .4);
+
+}
+
+.changeBtnOK:hover:enabled ,.changeBtnOK:active:enabled ,.changeBtnOK:focus:enabled{
+	background-color:rgba(8, 157, 210, 0.8);
+	box-shadow:
+	0 0 0 2px hsla(0, 0%, 100%, 0.57),
+	0 0 0 8px rgba(8, 157, 210, 0.2),
+	0 0 0 16px rgba(8, 157, 210, 0.2);
+  outline:0;
+}
+
+.prompt_text
+{
+    margin-top: 40px;
+}
+
+
+#displayLoding0
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+
+#displayLoding1
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding2
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding3
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding4
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding5
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding6
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding7
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding8
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding9
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding10
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+#displayLoding11
+{
+    position: fixed;
+    top:150px;   
+    z-index: 1003;
+    text-align: center;
+    width:98%; 
+    display:none;
+}
+
+.gotoThail
+{
+    text-align: center;
+}
+
+
+#changeresult1
+{
+    background:  #0D1C30;
+    position: fixed;
+    top:90px;  
+    z-index: 1003;
+    text-align: center;
+    color:#FFFFFF;
+    width:100%; height:400px;
+    display:none;
+}
+
+#changeresult2
+{
+    background:  #0D1C30;
+    position: fixed;
+    top:90px;  
+    z-index: 1003;
+    text-align: center;
+    color:#FFFFFF;
+    width:100%; height:400px;
+    display:none;
+}
+
+#changeresult3
+{
+    background:  #0D1C30;
+    position: fixed;
+    top:90px;  
+    z-index: 1003;
+    text-align: center;
+    color:#FFFFFF;
+    width:100%; height:400px;
+    display:none;
+}
+
+#changeresult4
+{
+    background:  #0D1C30;
+    position: fixed;
+    top:90px;  
+    z-index: 1003;
+    text-align: center;
+    color:#FFFFFF;
+    width:100%; height:400px;
+    display:none;
+}
+
+#Picturesuccess
+{
+    margin:auto;
+    top:90px; 
+    width:80px; height:80px;
+    background-size:cover;
+}
+#Picturefail
+{
+    margin:auto;
+    top:90px; 
+    width:80px; height:80px;
+    background-size:cover;
+}
+
+
+#Picturesuccess1
+{
+    margin:auto;
+    top:90px; 
+    width:80px; height:80px;
+    background-size:cover;
+}
+#Picturefail1
+{
+    margin:auto;
+    top:90px; 
+    width:80px; height:80px;
+    background-size:cover;
+}
+
+#maskDiagnostic{
+    background: #888888;
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+    opacity: 0.75;
+    filter:alpha(opacity=75);
+    z-index: 1002;
+    text-align: center;
+}
+
+#displayinfoDiagnostic
+{
+    position: fixed;
+    top:150px;  
+    z-index: 1003;
+    text-align: center;
+    width:100%; 
+}
+
+#diagonosticPage
+{ 
+    margin-left:40%;
+    width:150px;
+}
+
+.NewSSID
+{
+    display: none;
+}
+.SSIDBotton
+{
+    display: none;
+}
+.ChangePwd
+{
+    display: none;
+}
+
+/*passwd  button*/
+.btn_pw label{
+    text-align: center;
+}
+ 
+.btnOK
+{
+    margin: auto;
+    width:110px; height:28px;
+    border: 1px solid #000000;
+    color:#CD5C5C;
+    background:#778899; 
+} 
+
+#diagonostic
+{
+    padding-left:10px;
+    padding-top:10px;
+}
+
+
+#configPage
+{
+    padding-left:10px;
+    padding-top:10px;
+}
+
+#content
+{
+    text-align: left; 
+}
+
+#diagnosticbody
+{
+    background:#EEEEEE; 
+}
+.panel-default
+{
+    background:#EEEEEE; 
+}
+
+
+@media screen  and  (max-width: 800px)
+{  
+    .container
+    {
+        padding-top:25px;
+    }
+
+    .displayText
+    {  
+        font-size:172%;    
+        margin-left:40px; 
+        margin-bottom:10px;
+    }
+
+    .brr
+    {   
+        margin-left:37px; 
+    }
+
+
+    .promptInfo1
+    {
+        margin-left:43px; 
+    }
+
+    .promptInfo2
+    {
+        margin-left:43px; 
+    }
+
+    #prompt
+    {
+        font-size:130%;
+        top:465px;
+    }
+
+    .input
+    {
+        font-size:140%; 
+        width:467px; height:80px;
+        margin-bottom: 15px;
+    }
+    .input:disabled
+    {
+        font-size:140%; 
+        width:467px; height:80px;
+        margin-bottom: 15px;
+    }
+
+    .Change1
+    { 
+        font-size:200%; 
+        margin-left:15px;  
+        width:192px; height:75px;
+        margin-bottom: 10px;
+    }
+
+    .buttonOK
+    {
+        margin-left:380px;
+        font-size:200%; 
+        top:540px;
+        width:310px;
+        height:72px;
+    }
+    .buttonOK:disabled
+    {
+        margin-left:380px;
+        font-size:200%; 
+        top:540px;
+        width:310px;
+        height:72px;
+    }
+    .buttonCancel
+    {
+        top:540px;
+        font-size:200%; 
+        width:310px;
+        height:72px;
+    }
+    .buttonCancel:enabled 
+    {
+        top:540px;
+        font-size:200%; 
+        width:310px;
+        height:72px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        font-size:172%; 
+        top:500px;
+        margin-left:45px;
+    }
+
+    #NewPwdIncorrect
+    {
+        font-size:172%;
+        top:500px;
+        margin-left:180px;
+    }
+
+    #TwoPwdNotSame
+    { 
+        font-size:172%;
+        top:500px;
+        margin-left:135px;
+    }
+
+    changeresult1
+    {
+        top:100px; 
+    }
+    changeresult2
+    {
+        top:100px; 
+ 
+    }
+    changeresult3
+    {
+        top:100px; 
+    }
+    changeresult4
+    {
+        top:100px;  
+    }
+
+    #Picturesuccess
+    {
+        width:140px; height:132px;
+    }
+
+    #Picturefail
+    {
+        width:140px; height:132px;
+    }
+
+    #Picturesuccess1
+    {
+        width:140px; height:132px;
+    }
+
+    #Picturefail1
+    {
+        width:140px; height:132px;
+    }
+    .prompt_text
+    {
+        top: 330px;
+        font-size:300%;  
+    }
+    .changeBtnOK
+    {
+        width:320px; height:80px;
+        top: 595px;
+        font-size:200%;  
+    }
+
+    .pictureLoding
+    {
+        width:98px;
+        height:98px;
+    }
+
+    #displayLoding0
+    {
+        top:260px;  
+    }
+    #displayLoding1
+    {
+        top:260px; 
+    }
+    #displayLoding2
+    {
+        top:260px; 
+    }
+    #displayLoding3
+    {
+        top:260px; 
+    }
+    #displayLoding4
+    {
+        top:260px; 
+    }
+    #displayLoding5
+    {
+        top:260px; 
+    }
+    #displayLoding6
+    {
+        top:260px; 
+    }
+    #displayLoding7
+    {
+        top:260px; 
+    }
+    #displayLoding8
+    {
+        top:260px; 
+    }
+    #displayLoding9
+    {
+        top:260px; 
+    }
+    #displayLoding10
+    {
+        top:260px; 
+    }
+
+    #displayLoding11
+    {
+        top:260px; 
+    }
+}
+
+@media screen and (min-width: 770px) and (max-width: 799px)
+{  
+    .container
+    {
+        padding-top:20px;
+    }
+
+    .displayText
+    {
+        margin-left:20%; 
+        margin-bottom: 10px;
+        font-size:115%;  
+    }
+
+    .brr
+    {   
+        margin-left:19.5%; 
+    }
+
+    .promptInfo
+    {
+        margin-left:20%; 
+    }
+    .promptInfo1
+    {
+        margin-left:20%; 
+    }
+
+    .input
+    {
+        font-size:12px;
+        width:300px; height:47px;
+        margin-bottom: 15px;
+    }
+
+    .input:disabled
+    {
+        font-size:12px;
+        width:300px; height:47px;
+        margin-bottom: 15px;
+    }
+
+    .Change1
+    { 
+        font-size:115%; 
+        margin-left:15px;  
+        width:100px; height:40px;
+        margin-bottom: 0px;
+    }
+
+    .buttonOK
+    {
+        margin-left:230px;
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+    .buttonOK:disabled
+    {
+        margin-left:230px;
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+    .buttonCancel
+    {
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+    .buttonCancel:enabled 
+    {
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+
+    #prompt
+    {
+        font-size:110%;
+        margin-left:20%; 
+        top:325px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        font-size:115%;
+        margin-left:20%; 
+        top:377px;
+    }
+
+    #NewPwdIncorrect
+    {
+        font-size:115%;
+        margin-left:20%; 
+        top:377px; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        font-size:115%;
+        margin-left:20%; 
+        top:377px;
+    }
+
+    changeresult1
+    {
+        top:90px; 
+    }
+    changeresult2
+    {
+        top:90px; 
+    }
+    changeresult3
+    {
+        top:90px; 
+    }
+    changeresult4
+    {
+        top:90px; 
+    }
+    #Picturesuccess
+    {
+        width:90px; height:90px;
+    }
+
+    #Picturefail
+    {
+        width:90px; height:90px;
+    }
+
+    #Picturesuccess1
+    {
+        width:90px; height:90px;
+    }
+
+    #Picturefail1
+    {
+        width:90px; height:90px;
+    }
+
+    .prompt_text
+    {
+        margin-top: 40px;
+        font-size:100%;
+    }
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+        margin-top: 30px;
+        font-size:100%;
+    }
+
+    .pictureLoding
+    {
+        width:80px;
+        height:80px;
+    }
+
+    #displayLoding0
+    {
+        top:150px; 
+    }
+    #displayLoding1
+    {
+        top:150px; 
+    }
+    #displayLoding2
+    {
+        top:150px; 
+    }
+    #displayLoding3
+    {
+        top:150px; 
+    }
+    #displayLoding4
+    {
+        top:150px; 
+    }
+    #displayLoding5
+    {
+        top:150px; 
+    }
+    #displayLoding6
+    {
+        top:150px; 
+    }
+    #displayLoding7
+    {
+        top:150px; 
+    }
+    #displayLoding8
+    {
+        top:150px; 
+    }
+    #displayLoding9
+    {
+        top:150px; 
+    }
+    #displayLoding10
+    {
+        top:150px; 
+    }
+    #displayLoding11
+    {
+        top:150px; 
+    }
+
+}
+
+
+@media screen  and  (max-width: 768px)
+{  
+    .container
+    {
+        padding-top:40px;
+    }
+
+    .displayText
+    {
+        margin-left:20%; 
+        margin-bottom: 10px;
+        font-size:115%;  
+    }
+
+    .brr
+    {   
+        margin-left:19.5%; 
+    }
+    .promptInfo
+    {
+ 
+    }
+    .promptInfo1
+    {
+        margin-left:20%; 
+    }
+ 
+    .input
+    {
+        font-size:12px;
+        width:300px; height:47px;
+        margin-bottom: 15px;
+    }
+
+    .input:disabled
+    {
+        font-size:12px;
+        width:300px; height:47px;
+        margin-bottom: 15px;
+    }
+
+    .Change1
+    { 
+        font-size:115%; 
+        margin-left:15px;  
+        width:100px; height:40px;
+        margin-bottom: 0px;
+    }
+
+    .buttonOK
+    {
+        margin-left:230px;
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+
+
+    .buttonOK:disabled
+    {
+        margin-left:230px;
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+    .buttonCancel
+    {
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+    .buttonCancel:enabled 
+    {
+        top:400px;
+        font-size:115%; 
+        width:160px; height:40px;
+    }
+
+
+    .promptInfo2
+    {
+         margin-left:20%; 
+    }
+
+    #prompt
+    {
+        font-size:110%;
+        top:340px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        font-size:115%; 
+        top:380px;
+        margin-left:22%;
+    }
+
+    #NewPwdIncorrect
+    {
+        font-size:115%;
+        top:380px;
+        margin-left:27%;
+    }
+
+     #TwoPwdNotSame
+    { 
+        font-size:115%;
+        top:380px;
+        margin-left:22%;
+    }
+
+    changeresult1
+    {
+        top:90px; 
+    }
+    changeresult2
+    {
+        top:90px; 
+    }
+    changeresult3
+    {
+        top:90px; 
+    }
+    changeresult4
+    {
+        top:90px; 
+    }
+
+    #Picturesuccess
+    {
+        width:90px; height:90px;
+    }
+
+    #Picturefail
+    {
+        width:90px; height:90px;
+    }
+    #Picturesuccess1
+    {
+        width:90px; height:90px;
+    }
+
+    #Picturefail1
+    {
+        width:90px; height:90px;
+    }
+
+    .prompt_text
+    {
+        margin-top: 40px;
+        font-size:100%;
+    }
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+        margin-top: 30px;
+        font-size:100%;
+    }
+
+    .pictureLoding
+    {
+        width:80px;
+        height:80px;
+    }
+
+
+    #displayLoding0
+    {
+        top:150px; 
+    }
+    #displayLoding1
+    {
+        top:150px; 
+    }
+    #displayLoding2
+    {
+        top:150px; 
+    }
+    #displayLoding3
+    {
+        top:150px; 
+    }
+    #displayLoding4
+    {
+        top:150px; 
+    }
+    #displayLoding5
+    {
+        top:150px; 
+    }
+    #displayLoding6
+    {
+        top:150px; 
+    }
+    #displayLoding7
+    {
+        top:150px; 
+    }
+    #displayLoding8
+    {
+        top:150px; 
+    }
+    #displayLoding9
+    {
+        top:150px; 
+    }
+    #displayLoding10
+    {
+        top:150px; 
+    }
+    #displayLoding11
+    {
+        top:150px; 
+    }
+}
+
+@media screen  and  (max-width: 600px)
+{
+    .container
+    {
+        margin-top:0px;
+    }
+    .displayText
+    {
+        margin-left:2%; 
+    }
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+    .input
+    {
+        width:390px; height:55px;
+    }
+    .input:disabled
+    {
+        width:390px; height:55px;
+    }
+    .Change1
+    {
+        margin-left:18px; 
+        width:130px; height:48px;
+    }
+    .buttonOK
+    {
+        top:400px;
+        margin-left:300px;
+        width:240px; height:50px;
+    }
+
+    .buttonOK:disabled
+    {
+        top:400px;
+        margin-left:300px;
+        width:240px; height:50px;
+    }
+
+    .buttonCancel
+    {
+        top:400px;
+        width:240px; height:50px;
+    }
+    .buttonCancel:enabled 
+    { 
+        top:400px;
+        width:240px; height:50px;
+    }
+
+    .promptInfo2
+    {
+         margin-left:2%; 
+    }
+
+    #prompt
+    {
+        font-size:110%;
+        top:344px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        font-size:115%; 
+        top:379px;
+        margin-left:20%;
+    }
+
+    #NewPwdIncorrect
+    {
+        font-size:115%;
+        top:379px;
+        margin-left:27%;
+    }
+
+     #TwoPwdNotSame
+    { 
+        font-size:115%;
+        top:379px;
+        margin-left:20%;
+    }
+
+    changeresult1
+    {
+        font-size:150%;
+    }
+    changeresult2
+    {
+        font-size:150%;
+    }
+    changeresult3
+    {
+        font-size:150%;
+    }
+    changeresult4
+    {
+        font-size:150%;
+    }
+    .changeBtnOK
+    {
+        width:210px; height:52px;
+        margin-top: 10px;
+        font-size:100%;
+    }
+    .pictureLoding
+    {
+        width:80px;
+        height:80px;
+    }
+}
+
+@media screen and (min-width: 529px) and (max-width: 599px)
+{
+    .container
+    {
+        padding-top:20px;
+    }
+
+    .displayText
+    {
+        margin-left:10%; 
+    }
+
+    .brr
+    {   
+        margin-left:9.5%; 
+    }
+
+    .promptInfo2
+    {
+         margin-left:10%; 
+    }
+
+    .promptInfo
+    {
+        margin-left:10%; 
+    }
+    .promptInfo1
+    {
+        margin-left:10%; 
+    }
+
+    #prompt
+    {
+        top:325px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        margin-left:10%; 
+        top:377px;
+    }
+
+    #NewPwdIncorrect
+    {
+        margin-left:10%; 
+        top:377px; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        margin-left:10%; 
+        top:377px;
+    }
+    .input
+    {
+        width:250px; height:40px;
+
+    }
+    .input:disabled
+    {
+        width:250px; height:40px;
+
+    }
+    .Change1
+    {
+        margin-left:10px; 
+        width:100px; height:40px;
+        font-size:100%;
+    }
+    .buttonOK
+    {
+        margin-left:200px;
+        width:130px; height:40px;
+        font-size:100%;
+    }
+    .buttonOK:disabled 
+    {
+        margin-left:200px;
+        width:140px; height:40px;
+        font-size:100%;
+    }
+    .buttonCancel
+    {
+        width:130px; height:40px;
+        font-size:100%;
+    }
+    .buttonCancel:enabled 
+    {
+        width:130px; height:40px;
+        font-size:100%;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+    }
+
+    #changeresult1
+    {
+        top:100px;
+        font-size:100%;
+    }
+    #changeresult2
+    {
+        top:100px;
+        font-size:100%;
+    }
+    #changeresult3
+    {
+        top:100px;
+        font-size:100%;
+    }
+    #changeresult4
+    {
+        top:100px;
+        font-size:100%;
+    }
+
+    .changeBtnOK
+    {
+        margin-top: 10px;
+        font-size:100%;
+    }
+
+    .pictureLoding
+    {
+        width:40px;
+        height:40px;
+    }
+}
+
+@media screen  and  (max-width: 528px)
+{
+    .container
+    {
+        padding-top:20px;
+    }
+
+    .displayText
+    {
+        margin-left:10%; 
+    }
+
+    .brr
+    {   
+        margin-left:9.5%; 
+    }
+
+    .promptInfo2
+    {
+         margin-left:10%; 
+    }
+
+    #prompt
+    {
+        top:285px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        margin-left:10%; 
+    }
+
+    #NewPwdIncorrect
+    {
+        margin-left:10%; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        margin-left:10%; 
+    }
+
+    .promptInfo
+    {
+        margin-left:10%; 
+    }
+    .promptInfo1
+    {
+        margin-left:10%; 
+    }
+    .input
+    {
+        width:250px; height:40px;
+ 
+    }
+    .input:disabled
+    {
+        width:250px; height:40px;
+
+    }
+    .Change1
+    {
+        margin-left:10px; 
+        width:100px; height:40px;
+        font-size:100%;
+    }
+    .buttonOK
+    {
+        margin-left:200px;
+        width:130px;
+        font-size:100%;
+    }
+    .buttonOK:disabled 
+    {
+        margin-left:200px;
+        width:140px;
+        font-size:100%;
+    }
+    .buttonCancel
+    {
+        width:130px;
+        font-size:100%;
+    }
+    .buttonCancel:enabled 
+    {
+        width:130px;
+        font-size:100%;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+    }
+
+    #changeresult1
+    {
+        top:100px;
+        font-size:100%;
+    }
+    #changeresult2
+    {
+        top:100px;
+        font-size:100%;
+    }
+    #changeresult3
+    {
+        top:100px;
+        font-size:100%;
+    }
+    #changeresult4
+    {
+        top:100px;
+        font-size:100%;
+    }
+
+    .changeBtnOK
+    {
+        margin-top: 10px;
+        font-size:100%;
+    }
+
+    .pictureLoding
+    {
+        width:40px;
+        height:40px;
+    }
+}
+@media screen and (min-width: 415px) and (max-width: 527px)
+{
+    .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:2%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        margin-left:3%; 
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+
+    #prompt
+    {
+        top:325px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        margin-left:3%; 
+        top:377px;
+    }
+
+    #NewPwdIncorrect
+    {
+        margin-left:3%; 
+        top:377px; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        margin-left:3%; 
+        top:377px;
+    }
+
+    .input
+    {
+        width:250px; height:42px;
+    }
+    .input:disabled
+    {
+        width:250px; height:42px;
+    }
+
+    .Change1
+    {
+        margin-left:15px; 
+        width:90px; height:38px;
+
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonOK
+    {
+        margin-left:200px;
+        height:38px;
+        width:155px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonOK:disabled
+    {
+        margin-left:200px;
+        height:38px;
+        width:155px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel
+    {        
+        height:38px;
+        width:155px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:155px;
+    }
+
+    .promptInfo2
+    {
+         margin-left:3%; 
+         top:325px;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+        font-size:100%;
+    }
+}
+@media screen  and  (max-width: 414px)
+{
+    .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:2%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        margin-left:3%; 
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+
+    .promptInfo2
+    {
+        margin-left:3%; 
+    }
+
+    #prompt
+    {
+        top:322px;
+    }
+
+    #NewSsidIncorrect
+    { 
+        margin-left:3%; 
+        top:377px;
+    }
+
+    #NewPwdIncorrect
+    {
+        margin-left:3%;
+        top:377px; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        margin-left:3%; 
+        top:377px;
+    }
+    .input
+    {
+        width:250px; height:42px;
+    }
+    .input:disabled
+    {
+        width:250px; height:42px;
+    }
+
+    .Change1
+    {
+        margin-left:15px; 
+        width:90px; height:38px;
+
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonOK
+    {
+        margin-left:200px;
+        height:38px;
+        width:155px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonOK:disabled
+    {
+        margin-left:200px;
+        height:38px;
+        width:155px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel
+    {        
+        height:38px;
+        width:155px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:155px;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+        font-size:100%;
+    }
+}
+@media screen  and  (max-width: 412px)
+{
+     .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:2%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        margin-left:3%; 
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+
+    #NewSsidIncorrect
+    { 
+        top:380px;
+    }
+
+    #NewPwdIncorrect
+    {
+        top:380px; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        top:380px;
+    }
+    .input
+    {
+        width:250px; height:42px;
+    }
+    .input:disabled
+    {
+        width:250px; height:42px;
+    }
+
+    .Change1
+    {
+        margin-left:15px; 
+        width:90px; height:38px;
+
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonOK
+    {
+        margin-left:190px;
+        height:38px;
+        width:150px;
+    }
+    .buttonOK:disabled
+    {
+        margin-left:190px;
+        height:38px;
+        width:150px;
+    }
+    .buttonCancel
+    {        
+        height:38px;
+        width:150px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:150px;
+    }
+
+    #th-lang
+    {
+        position:fixed;
+        left:50px;
+        top:320px;
+    }
+
+    #en-lang
+    {
+        position:fixed;
+        left:50px;
+        top:320px;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+        font-size:100%;
+    }
+}
+
+
+@media screen and (min-width: 385px) and (max-width: 411px) 
+{
+    .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:2%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        margin-left:3%; 
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+    .input
+    {
+        width:220px; height:42px;
+    }
+    .input:disabled
+    {
+        width:220px; height:42px;
+    }
+    .Change1
+    {
+        margin-left:10px; 
+        width:85px; height:38px;
+
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    #th-lang
+    {
+        position:fixed;
+        left:50px;
+        top:320px;
+    }
+
+    #en-lang
+    {
+        position:fixed;
+        left:50px;
+        top:320px;
+    }
+
+    .buttonOK
+    {
+        margin-left:180px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonOK:disabled
+    {
+        margin-left:180px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel
+    {
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:140px;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+        font-size:100%;
+    }
+}
+
+@media screen  and  (max-width: 384px)
+{
+    .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:2%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        margin-left:3%; 
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+    .input
+    {
+        width:220px; height:42px;
+    }
+    .input:disabled
+    {
+        width:220px; height:42px;
+    }
+    .Change1
+    {
+        margin-left:10px; 
+        width:85px; height:38px;
+
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonOK
+    {
+        margin-left:180px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonOK:disabled
+    {
+        margin-left:180px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel
+    {
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:140px;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+    }
+}
+
+@media screen  and  (max-width: 375px)
+{
+    .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:2%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        margin-left:3%; 
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+    .input
+    {
+        width:220px; height:42px;
+    }
+    .input:disabled
+    {
+        width:220px; height:42px;
+    }
+
+    .Change1
+    {
+        margin-left:10px; 
+        width:85px; height:38px;
+
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    #th-lang
+    {
+        position:fixed;
+        left:50px;
+        top:320px;
+    }
+
+    #en-lang
+    {
+        position:fixed;
+        left:50px;
+        top:320px;
+    }
+
+    .buttonOK
+    {
+        margin-left:180px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonOK:disabled
+    {
+        margin-left:180px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel
+    {
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:140px;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+    }
+}
+
+@media screen  and  (max-width: 360px)
+{
+    .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:2%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:1.5%; 
+    }
+    .promptInfo
+    {
+        margin-left:3%; 
+    }
+    .promptInfo1
+    {
+        margin-left:3%; 
+    }
+
+    #NewSsidIncorrect
+    { 
+        top:380px;
+    }
+
+    #NewPwdIncorrect
+    {
+        top:380px; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        top:368px;
+    }
+
+    .input
+    {  
+        width:210px; height:42px;
+        margin-bottom: 10px;
+    }
+    .input:disabled
+    {  
+        width:210px; height:42px;
+        margin-bottom: 10px;
+    }
+    .Change1
+    {
+        margin-left:12px; 
+        width:80px; height:38px;
+
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonOK
+    {
+        margin-left:170px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonOK:disabled
+    {
+        margin-left:170px;
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel
+    {        
+        height:38px;
+        width:140px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:140px;
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+    }
+}
+
+@media screen and (min-width: 319px) and (max-width: 359px)
+{
+    .container
+    {
+        padding-top:60px;
+    }
+
+    .displayText
+    {
+        font-size:110%;
+        margin-left:0%; 
+        -moz-border-radius: 15px;      /* Gecko browsers */
+        -webkit-border-radius: 15px;   /* Webkit browsers */
+        border-radius:15px;            /* W3C syntax */
+    }
+
+    .brr
+    {   
+        margin-left:0%; 
+    }
+    .promptInfo
+    {
+        margin-left:2%; 
+    }
+    .promptInfo1
+    {
+        margin-left:2%; 
+    }
+
+    #NewSsidIncorrect
+    { 
+        top:365px;
+    }
+
+    #NewPwdIncorrect
+    {
+        top:385px; 
+    }
+
+    #TwoPwdNotSame
+    { 
+        top:365px;
+    }
+
+    .input
+    {
+        width:210px; height:42px;
+    }
+    .input:disabled
+    {
+        width:210px; height:42px;
+    }
+
+    .Change1
+    {
+        margin-left:2px; 
+        width:68px; height:38px;
+        font-size:90%;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+
+    .buttonOK
+    {
+        margin-left:155px;
+        height:38px;
+        width:120px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonOK:disabled
+    {
+        margin-left:155px;
+        height:38px;
+        width:120px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel
+    {        
+        height:38px;
+        width:120px;
+       -moz-border-radius: 20px;      /* Gecko browsers */
+        -webkit-border-radius: 20px;   /* Webkit browsers */
+        border-radius:20px;            /* W3C syntax */
+    }
+    .buttonCancel:enabled 
+    {
+        height:38px;
+        width:120px;
+    }
+
+    .promptInfo2
+    {
+         margin-left:2%; 
+    }
+
+    .changeBtnOK
+    {
+        width:110px; height:32px;
+    }
+}
+
