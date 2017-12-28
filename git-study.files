@@ -19,3 +19,6 @@ open_serial_port.c
 sizeof.c
 test.c
 test_pointer.c
+web/Test.html
+web/js/test.js
+web/css/test.css
