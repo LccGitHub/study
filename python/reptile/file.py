@@ -6,6 +6,7 @@ import getopt, string
 from os import path,makedirs
 import os.path
 import re
+from importH import *
 
 str = ""
 function = ""
@@ -78,8 +79,13 @@ def usage():
 def Entry():
     EntryParams()
     getCfilepath()
-    readFile()
-    generateCode()
+    hmatrix = importH(h_file_name)
+    global str
+    str = '#include"dbclass.h"\n\n'
+    for i in range(len(hmatrix.GetFunctionC())):
+        str = str + hmatrix.GetFunctionC()[i]
+    #readFile()
+    #generateCode()
     writeFile()
 
 def EntryParams():
