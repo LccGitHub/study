@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-class DateBase :public db
+class DateBase
 {
 	public:
 		DateBase(char* dbPath);
@@ -17,5 +17,6 @@ class DateBase :public db
 		int SearchDataBase();
 	private:
 		char dbpath[128];
+        static sqlite3 *database;
 };
 
