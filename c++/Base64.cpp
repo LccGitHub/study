@@ -2,6 +2,8 @@
 
 const unsigned char Base64::s_enBaseTable64[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 const unsigned char Base64::s_deBaseTable64[256] ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,62,0,0,0,63,52,53,54,55,56,57,58,59,60,61,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,0,0,0,0,0,0,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51};
+
+
 Base64::Base64()
 {
     printf("Base64::%s \n", __func__);
@@ -89,6 +91,7 @@ int Base64::decodeBase64(const unsigned char* inStr, unsigned char* outStr, int 
 
         /* outStrLen is not satify compute len */
         if (outStrSize < (len + 1)) {
+            printf("memory is not enough !!!");
             result = 2;
         }
         else {
@@ -109,6 +112,92 @@ int Base64::decodeBase64(const unsigned char* inStr, unsigned char* outStr, int 
     return result;
 }
 
+int Base64::encodeBase64File(const unsigned char *inStr)
+{
+    int result = 0;
+    if (inStr == NULL) {
+        printf("input parameter is NULL \n");
+        result = 1;
+    }
+    else {
+        long fileSize = 0;
+        FILE* fp = fopen((const char*)inStr, "rb");
+        if (NULL == fp) {
+            printf("fopen failed!!! \n");
+            result = 2;
+        }
+        else {
+            fseek(fp, 0, SEEK_END);/* location end */
+            fileSize = ftell(fp); /* get file size */
+            fseek(fp, 0, SEEK_SET);
+            unsigned char* inStr = NULL;
+            unsigned char* outStr = NULL;
+            inStr = (unsigned char*)malloc(fileSize + 1);
+            outStr = (unsigned char*)malloc((fileSize/ 3 + 1) * 4 + 1);
+            if ((inStr == NULL) || (outStr == NULL)) {
+                printf("malloc failed!!! \n");
+                result = 2;
+            }
+            else {
+                fread(inStr, (size_t)1, (size_t)fileSize, fp);
+                fclose(fp);
+                encodeBase64((const unsigned char*)inStr,outStr, (fileSize/ 3 +1 ) * 4 + 1 );
+                printf("inStr =[%s], outStr=[%s] \n", inStr, outStr);
+                fp = NULL;
+                fp = fopen("decode.txt", "wb+");
+                fwrite(outStr, (size_t)1, (size_t)strlen((const char*)outStr), fp);
+                fclose(fp);
+                free(inStr);
+                free(outStr);
+            }
+        }
+    }
+    return result;
+}
+
+int Base64::decodeBase64File(const unsigned char *inStr)
+{
+    int result = 0;
+    if (inStr == NULL) {
+        printf("input parameter is NULL \n");
+        result = 1;
+    }
+    else {
+        long fileSize = 0;
+        FILE* fp = fopen((const char*)inStr, "rb");
+        if (NULL == fp) {
+            printf("fopen failed!!! \n");
+            result = 2;
+        }
+        else {
+            fseek(fp, 0, SEEK_END);/* location end */
+            fileSize = ftell(fp); /* get file size */
+            fseek(fp, 0, SEEK_SET);
+            unsigned char* inStr = NULL;
+            unsigned char* outStr = NULL;
+            inStr = (unsigned char*)malloc(fileSize + 1);
+            outStr = (unsigned char*)malloc((fileSize/ 4 + 1) * 3 + 1);
+            if ((inStr == NULL) || (outStr == NULL)) {
+                printf("malloc failed!!! \n");
+                result = 2;
+            }
+            else {
+                fread(inStr, (size_t)1, (size_t)fileSize, fp);
+                fclose(fp);
+                decodeBase64((const unsigned char*)inStr,outStr, (fileSize/ 4 + 1) * 3 + 1 );
+                printf("inStr =[%s], outStr=[%s] \n", inStr, outStr);
+                fp = NULL;
+                fp = fopen("encode.txt", "wb+");
+                fwrite(outStr, (size_t)1, (size_t)strlen((const char*)outStr), fp);
+                fclose(fp);
+                free(inStr);
+                free(outStr);
+            }
+        }
+    }
+    return result;
+}
+
 
 int main()
 {
@@ -121,6 +210,9 @@ int main()
     unsigned char deResult[512] = {0};
     base64.decodeBase64((const unsigned char*)enResult, deResult, sizeof(deResult));
     printf("decode result =[%s] \n", deResult);
+
+    base64.encodeBase64File((const unsigned char*)"test.txt");
+    base64.decodeBase64File((const unsigned char*)"decode.txt");
     return 0;
 }
 

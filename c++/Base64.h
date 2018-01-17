@@ -16,7 +16,9 @@ class Base64
 		Base64();
 		~Base64();
         int encodeBase64(const unsigned char *inStr, unsigned char* outStr, int outStrSize);
-        int decodeBase64(const unsigned char *str, unsigned char* outStr, int outStrSize);
+        int decodeBase64(const unsigned char *inStr, unsigned char* outStr, int outStrSize);
+        int encodeBase64File(const unsigned char *inStr);
+        int decodeBase64File(const unsigned char *inStr);
 
 	private:
         static const unsigned char s_enBaseTable64[65];
