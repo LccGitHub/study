@@ -1,22 +1,33 @@
-#include<iostream>
-using namespace std;
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+#include<sqlite3.h>
+
+struct DBConfig{
+    char key[128];
+    char value[128];
+};
 
 class DateBase
 {
 	public:
-		DateBase(char* dbPath);
-		~DataBase();
+        DateBase(const char *dbPath);
+        ~DateBase();
 		int OpenDateBase();
-		int IsOpenedDataBase();
+        int IsOpenedDateBase();
 		int CloseDateBase();
-		int CreateTable(char* tableName);
-		int IsExitTable(Char* tableName);
-		int InsertDataBase();
-		int UpdateDataBase();
-		int DeleteDataBase();
-		int SearchDataBase();
+        int CreateTable(const char *tableName);
+        int IsExitTable(char *tableName);
+        int InsertDateBase(DBConfig dbConfig);
+        int UpdateDateBase(DBConfig dbConfig);
+        int DeleteDateBase(const char *key);
+        int SearchDateBase(const char *key, DBConfig* dbConfig);
+        int ExecNoResDateBase(const char *sql);
 	private:
-		char dbpath[128];
-        static sqlite3 *database;
+        char m_dbpath[128];
+        char m_tableName[128];
+        DBConfig m_dbConfig;
+        static sqlite3 *m_datebase;
+
 };
 
