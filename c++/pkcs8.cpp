@@ -1,3 +1,18 @@
+/*-----------------------commit----------------------------------------
+ *compile command: g++ pkcs8.cpp pkcs8.h -lssl -lcrypto -o pkcs8
+ *feature        : implement pkcs8 encode/decode by openssl or base64 rule
+ * openssl command:openssl pkcs8 -topk8 -v2 des  -in pri.pem  -out desslpri.pem
+ *                 openssl pkcs8  -inform PEM -in desslpri.pem -outform PEM -out 1111.pem
+ *                 openssl rsa -in 1111.pem -out 222.pem
+ *                 -topk8          output PKCS8 file
+ *                 -in file        input file
+ *                 -v2 alg         use PKCS#5 v2.0 and cipher "alg"
+ *                 -v1 obj         use PKCS#5 v1.5 and cipher "alg"
+ *                 -out file       output file
+ *                 -i, --ignore-garbage  when decoding, ignore non-alphabet characters
+ *                 -w, --wrap=COLS       wrap encoded lines after COLS character (default 76).
+ *                                       Use 0 to disable line wrapping
+ * ----------------------------------------------------------------*/
 #include<openssl/rsa.h>
 #include<openssl/pem.h>
 #include<openssl/err.h>
@@ -40,6 +55,9 @@ int Pkcs8::deCryptoPkcs8(const unsigned char *inStr, unsigned char* outStr, int 
     return result;
 }
 
+/*-----------------------------------------------------------------------------
+ * openssl command:openssl pkcs8 -topk8 -v2 des  -in pri.pem  -out desslpri.pem
+*------------------------------------------------------------------------------*/
 int Pkcs8::enCryptoPkcs8Ssl(const unsigned char *inStr, unsigned char* outStr, int outStrSize)
 {
     int result = 0;
@@ -86,6 +104,7 @@ int Pkcs8::enCryptoPkcs8Ssl(const unsigned char *inStr, unsigned char* outStr, i
                 }
                 else {
                     unsigned char crypt_password[20] = "111111";
+                    /*私钥保存为PKCS#8格式，并使用des算法进行加密*/
                     int i =PEM_write_bio_PKCS8PrivateKey(out, pkey_pk1,EVP_des_ede3_cbc(), NULL, 0, 0, crypt_password);
                     if (i == 0) {
                         ERR_print_errors(bio_err);
@@ -112,6 +131,11 @@ int Pkcs8::enCryptoPkcs8Ssl(const unsigned char *inStr, unsigned char* outStr, i
     return result;
 }
 
+
+/*----------------------------------------------------------------------
+ * openssl pkcs8  -inform PEM -in desslpri.pem -outform PEM -out 1111.pem
+ * openssl rsa -in 1111.pem -out 222.pem
+ * ---------------------------------------------------------------------*/
 int Pkcs8::deCryptoPkcs8Ssl(const unsigned char *inStr, unsigned char* outStr, int outStrSize)
 {
     int result = 0;
