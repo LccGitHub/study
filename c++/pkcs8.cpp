@@ -1,7 +1,7 @@
 /*-----------------------commit----------------------------------------
  *compile command: g++ pkcs8.cpp pkcs8.h -lssl -lcrypto -o pkcs8
  *feature        : implement pkcs8 encode/decode by openssl or base64 rule
- * openssl command:openssl pkcs8 -topk8 -v2 des  -in pri.pem  -out desslpri.pem
+ * openssl command:openssl pkcs8 -topk8 v2 des-ede3-cbc  -in pri.pem  -out desslpri.pem
  *                 openssl pkcs8  -inform PEM -in desslpri.pem -outform PEM -out 1111.pem
  *                 openssl rsa -in 1111.pem -out 222.pem
  *                 -topk8          output PKCS8 file
@@ -12,6 +12,7 @@
  *                 -i, --ignore-garbage  when decoding, ignore non-alphabet characters
  *                 -w, --wrap=COLS       wrap encoded lines after COLS character (default 76).
  *                                       Use 0 to disable line wrapping
+ * Note:加密生成的文件是不一样的，但是解密的文件是唯一的
  * ----------------------------------------------------------------*/
 #include<openssl/rsa.h>
 #include<openssl/pem.h>
@@ -56,7 +57,7 @@ int Pkcs8::deCryptoPkcs8(const unsigned char *inStr, unsigned char* outStr, int 
 }
 
 /*-----------------------------------------------------------------------------
- * openssl command:openssl pkcs8 -topk8 -v2 des  -in pri.pem  -out desslpri.pem
+ * openssl command:openssl pkcs8 -topk8 v2 des-ede3-cbc  -in pri.pem  -out desslpri.pem
 *------------------------------------------------------------------------------*/
 int Pkcs8::enCryptoPkcs8Ssl(const unsigned char *inStr, unsigned char* outStr, int outStrSize)
 {
@@ -104,7 +105,7 @@ int Pkcs8::enCryptoPkcs8Ssl(const unsigned char *inStr, unsigned char* outStr, i
                 }
                 else {
                     unsigned char crypt_password[20] = "111111";
-                    /*私钥保存为PKCS#8格式，并使用des算法进行加密*/
+                    /*私钥保存为PKCS#8格式，并使用3TDES encrypted算法进行加密*/
                     int i =PEM_write_bio_PKCS8PrivateKey(out, pkey_pk1,EVP_des_ede3_cbc(), NULL, 0, 0, crypt_password);
                     if (i == 0) {
                         ERR_print_errors(bio_err);
@@ -306,24 +307,24 @@ int main()
     Pkcs8 pkcs8;
 #if 0
     unsigned char enResult[512] = {0};
-    base64.encodeBase64((const unsigned char*)"hello world", enResult, sizeof(enResult));
+    pkcs8.encodeBase64((const unsigned char*)"hello world", enResult, sizeof(enResult));
     printf("encode result =[%s] \n", enResult);
 
     memset(enResult, 0, sizeof(enResult));
-    base64.encodeBase64Ssl((const unsigned char*)"hello world", enResult, sizeof(enResult));
+    pkcs8.encodeBase64Ssl((const unsigned char*)"hello world", enResult, sizeof(enResult));
     printf("encode ssl result =[%s] \n", enResult);
 
 
     unsigned char deResult[512] = {0};
-    base64.decodeBase64((const unsigned char*)enResult, deResult, sizeof(deResult));
+    pkcs8.decodeBase64((const unsigned char*)enResult, deResult, sizeof(deResult));
     printf("decode result =[%s] \n", deResult);
 
     memset(deResult, 0, sizeof(deResult));
-    base64.decodeBase64Ssl((const unsigned char*)enResult, deResult, sizeof(deResult));
+    pkcs8.decodeBase64Ssl((const unsigned char*)enResult, deResult, sizeof(deResult));
     printf("decode ssl result =[%s] \n", deResult);
 #endif
     pkcs8.enCryptoPkcs8File((const unsigned char*)"pri.pem");
-    pkcs8.deCryptoPkcs8File((const unsigned char*)"enpri.pem");
+    pkcs8.deCryptoPkcs8File((const unsigned char*)"1.pem");
 
     return 0;
 }
