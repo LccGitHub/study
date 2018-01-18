@@ -8,6 +8,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <openssl/pem.h>
+#include <openssl/bio.h>
+#include <openssl/evp.h>
 
 
 class Base64
@@ -17,6 +20,8 @@ class Base64
 		~Base64();
         int encodeBase64(const unsigned char *inStr, unsigned char* outStr, int outStrSize);
         int decodeBase64(const unsigned char *inStr, unsigned char* outStr, int outStrSize);
+        int encodeBase64Ssl(const unsigned char *inStr, unsigned char* outStr, int outStrSize);
+        int decodeBase64Ssl(const unsigned char *inStr, unsigned char* outStr, int outStrSize);
         int encodeBase64File(const unsigned char *inStr);
         int decodeBase64File(const unsigned char *inStr);
 
