@@ -106,6 +106,7 @@ int Pkcs8::enCryptoPkcs8Ssl(const unsigned char *inStr, unsigned char* outStr, i
                 else {
                     unsigned char crypt_password[20] = "111111";
                     /*私钥保存为PKCS#8格式，并使用3TDES encrypted算法进行加密*/
+                    /*openssl list-cipher-commands:a cipher is a particular algorithm used to encrypt and decrypt data. */
                     int i =PEM_write_bio_PKCS8PrivateKey(out, pkey_pk1,EVP_des_ede3_cbc(), NULL, 0, 0, crypt_password);
                     if (i == 0) {
                         ERR_print_errors(bio_err);
