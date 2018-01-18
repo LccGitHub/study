@@ -61,7 +61,7 @@ def writeFile():
     writef.close()
 
 def getCfilepath():
-    c_file_name = re.sub(r'.h', '.cpp', h_file_name)
+    c_file_name = re.sub(r'.h$', '.cpp', h_file_name)
     print c_file_name
     return c_file_name
 def usage():
