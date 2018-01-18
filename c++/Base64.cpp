@@ -1,3 +1,13 @@
+/*-----------------------commit----------------------------------------
+ *compile command: g++ Base64.cpp Base64.h -lssl -l crypto -o Base64
+ *feature        : implement base64 encode/decode by openssl or base64 rule
+ * openssl command:base64 base64 [OPTION]... [FILE]
+ *                 -d, --decode          decode data
+ *                 -i, --ignore-garbage  when decoding, ignore non-alphabet characters
+ *                 -w, --wrap=COLS       wrap encoded lines after COLS character (default 76).
+ *                                       Use 0 to disable line wrapping
+ * ----------------------------------------------------------------*/
+
 #include"Base64.h"
 
 const unsigned char Base64::s_enBaseTable64[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -112,6 +122,90 @@ int Base64::decodeBase64(const unsigned char* inStr, unsigned char* outStr, int 
     return result;
 }
 
+int Base64::encodeBase64Ssl(const unsigned char* inStr, unsigned char* outStr, int outStrSize)
+{
+    int result = 0;
+    if ((inStr == NULL) || (outStr == NULL)) {
+        result = 1;
+    }
+    else {
+        long inStrLen = 0, len = 0;
+        inStrLen = strlen((const char*)inStr);
+        if (0 == (inStrLen % 3)) {
+            len = (inStrLen / 3) * 4;
+        }
+        else {
+            len = (inStrLen / 3 + 1) * 4;
+        }
+        if (outStrSize < (len + 1)) {
+            result = 2;
+        }
+        else {
+            BIO *b64, *bio;
+            BUF_MEM *bptr = NULL;
+
+            b64 = BIO_new(BIO_f_base64());
+            BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);/* no new line, if comments it, will add a new line*/
+            bio = BIO_new(BIO_s_mem());
+            bio = BIO_push(b64, bio);
+
+            BIO_write(bio, inStr, inStrLen);
+            BIO_flush(bio);
+
+            BIO_get_mem_ptr(bio, &bptr);
+            memcpy(outStr, bptr->data, bptr->length);
+            outStr[bptr->length] = '\0';
+
+            BIO_free_all(b64);
+            BIO_free_all(bio);
+        }
+    }
+}
+
+int Base64::decodeBase64Ssl(const unsigned char* inStr, unsigned char* outStr, int outStrSize)
+{
+    int result = 0;
+    if ((inStr == NULL) || (outStr == NULL)) {
+        result = 1;
+    }
+    else {
+        long inStrLen = 0, len = 0;
+        /* get outStr len */
+        inStrLen = strlen((const char*)inStr);
+        if (strstr((const char*)inStr, "==")) {
+            len = (inStrLen / 4) * 3 - 2;
+        }
+        else if (strstr((const char*)inStr, "=")) {
+            len = (inStrLen / 4) * 3 - 1;
+        }
+        else {
+            len = (inStrLen / 4) * 3;
+        }
+
+
+        /* outStrLen is not satify compute len */
+        if (outStrSize < (len + 1)) {
+            printf("memory is not enough !!!");
+            result = 2;
+        }
+        else {
+            BIO *b64, *bio;
+
+            b64 = BIO_new(BIO_f_base64());
+            //BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
+
+            bio = BIO_new_mem_buf((void*)inStr, inStrLen);
+            bio = BIO_push(b64, bio);
+
+            int size = BIO_read(bio, outStr, inStrLen);
+            outStr[size] = '\0';
+
+            BIO_free_all(b64);
+            BIO_free_all(bio);
+        }
+    }
+}
+
 int Base64::encodeBase64File(const unsigned char *inStr)
 {
     int result = 0;
@@ -206,10 +300,18 @@ int main()
     base64.encodeBase64((const unsigned char*)"hello world", enResult, sizeof(enResult));
     printf("encode result =[%s] \n", enResult);
 
+    memset(enResult, 0, sizeof(enResult));
+    base64.encodeBase64Ssl((const unsigned char*)"hello world", enResult, sizeof(enResult));
+    printf("encode ssl result =[%s] \n", enResult);
+
 
     unsigned char deResult[512] = {0};
     base64.decodeBase64((const unsigned char*)enResult, deResult, sizeof(deResult));
     printf("decode result =[%s] \n", deResult);
+
+    memset(deResult, 0, sizeof(deResult));
+    base64.decodeBase64Ssl((const unsigned char*)enResult, deResult, sizeof(deResult));
+    printf("decode ssl result =[%s] \n", deResult);
 
     base64.encodeBase64File((const unsigned char*)"test.txt");
     base64.decodeBase64File((const unsigned char*)"decode.txt");
