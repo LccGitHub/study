@@ -4,9 +4,14 @@
 	> Mail: ma6174@163.com 
 	> Created Time: Thu 18 Jan 2018 05:31:32 PM CST
  ************************************************************************/
+#ifndef MD5_SHA_H
+#define MD5_SHA_H
+
+
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 class Md5Sha
 {
@@ -17,7 +22,10 @@ class Md5Sha
         int GetSha1(const char *inStr, unsigned char* outStr);
         int GetSha256(const char *inStr, unsigned char* outStr);
         int GetMd5File(const char *inStr, unsigned char *outStr);
-        int GetSha1File(const char *inStr);
+        int GetSha1File(const char *inStr, unsigned char* outStr);
 
-}
+};
+
+
+#endif
 
