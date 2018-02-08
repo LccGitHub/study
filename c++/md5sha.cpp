@@ -1,6 +1,7 @@
 #include <openssl/md5.h>
 #include <openssl/sha.h>
 #include"md5sha.h"
+#include"Base64.h"
 
 Md5Sha::Md5Sha()
 {
@@ -169,6 +170,12 @@ int main()
     md5sha.GetSha1File((const char *)"test.txt", outStr);
     memset(outStr, 0, sizeof(outStr));
     md5sha.GetSha256((const char *)"hello world", outStr);
+
+
+    Base64 base64;
+    unsigned char enResult[512] = {0};
+    base64.encodeBase64((const unsigned char*)"hello world", enResult, sizeof(enResult));
+    printf("encode result =[%s] \n", enResult);
 
 
 }

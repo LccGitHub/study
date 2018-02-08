@@ -292,7 +292,7 @@ int Base64::decodeBase64File(const unsigned char *inStr)
     return result;
 }
 
-
+#if 0
 int main()
 {
     Base64 base64;
@@ -317,4 +317,4 @@ int main()
     base64.decodeBase64File((const unsigned char*)"decode.txt");
     return 0;
 }
-
+#endif
