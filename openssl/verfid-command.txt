@@ -1,0 +1,84 @@
+
+查看证书内容
+openssl asn1parse idneo-validation.com-gdc-lte-pwd-prod.pem
+
+查看加密的方法
+openssl list-cipher-commands
+
+
+
+
+=============================
+==            A            ==
+==   Generating Key Pair   ==
+=============================
+
+openssl genrsa -out private.pem 4096
+openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+
+OUTPUT: private.pem    public.pem (root key pair, 2 files, stored in secure server)
+
+
+=============================
+==            B            ==
+==    Generating CA cert   ==
+=============================
+
+openssl req -new -x509 -days 7200 -extensions v3_ca -key private.pem -out cacert.pem
+
+OUTPUT: cacert.pem (root public certificate, 1 file, stored in TCU and secure server)
+
+====================================
+==                C               ==
+==    Generating secondary keys   ==
+====================================
+
+openssl req -out secondary.csr -new -newkey rsa:4096 -nodes -keyout secondary.key
+
+OUTPUT: secondary.csr    secondary.key (Certificate request + public key, 2 files, stored in secure server)
+
+
+===========================================
+==                    D                  ==
+==    Generating secondary certificate   ==
+===========================================
+
+openssl x509 -req -in secondary.csr -CA cacert.pem -CAkey private.pem -CAcreateserial -out secondary.crt -days 365 -sha256
+
+OUTPUT: secondary.crt (Public key certificate, 1 file, sent with SW update)
+
+Note:cerfificat informat must be different!!!
+
+=============================
+==             Ｅ           ==
+==        Sign a file      ==
+=============================
+
+Linux:
+        openssl dgst -sha256 -sign  secondary.key -out signature data.txt
+
+
+===========================================
+==                    Ｆ                  ==
+==    Validating secondary certificate   ==
+===========================================
+
+    openssl verify -CAfile cacert.pem secondary.crt
+
+====================================
+==                Ｇ               ==
+==    Extracting secondary keys   ==
+====================================
+
+    openssl x509 -in secondary.crt -pubkey -noout > secondary_public.pem
+
+
+
+===============================
+==              J            ==
+==    Validating signature   ==
+===============================
+
+    openssl dgst -sha256 -verify public.pem -signature signature data.txt
+
+
