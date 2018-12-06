@@ -4,6 +4,8 @@
 
 import os
 import fileinput
+import getopt
+import sys
 
 
 hHead1 = '''/**
@@ -72,6 +74,31 @@ classDesciptionclassDesciption = '''/**
  * @bug:
 '''
 
+ifForWhileList = ["for", "if", "while"]
+
+
+# add space after if/for/while/else, such as for ()  if () while ()
+def addSapceAfterIf(line):
+    newline = ""
+    indexIf = line.find("if")
+    indexFor = line.find("for")
+    indexWhile = line.find("while")
+    indexElse = line.find("else")
+    # fix if() to if ()
+    if (indexIf >=0 and line[indexIf+2] != ' '):
+        newline = newline + line[:indexIf+2] + " " + line[indexIf+2:]
+    # fix for() to for ()
+    elif (indexFor >=0 and line[indexFor+3] != ' '):
+        newline = newline + line[:indexFor+3] + " " + line[indexFor+3:]
+    # fix while() to while ()
+    elif (indexWhile >=0 and line[indexWhile+5] != ' '):
+        newline = newline + line[:indexWhile+5] + " " + line[indexWhile+5:]
+    # fix else() to else ()
+    elif (indexElse >=0 and line[indexElse+4] != ' '):
+        newline = newline + line[:indexElse+4] + " " + line[indexElse+4:]
+    else:
+        newline = line
+    return newline
 
 
 # add space befor '/*' or '*/' or '//', such as /*adde*/ shoule be /* adde */
@@ -212,7 +239,7 @@ def addHfileCplus():
 
 ''' add EOF in end of file '''
 def addEOF():
-    newline = "/* EOF */"
+    newline = "/* EOF */\n"
     return newline
 
 def checIsContain(line, word):
@@ -241,7 +268,7 @@ def addClassDesription():
 
 
 
-def checkAndFixFileCppInt(filePath):
+def checkAndFixFileCppLInt(filePath):
     isHFile = False
     haveCopyright = False
     haveEOF = False
@@ -268,6 +295,7 @@ def checkAndFixFileCppInt(filePath):
         newline = addSpaceInComments(line)
         newline = removeSpaceBeforBrackts(newline)
         newline = addSpaceBeforComma(newline)
+        newline = addSapceAfterIf(newline) # add space after if/for/while
         contex = contex + newline
     # for end
 
@@ -279,18 +307,58 @@ def checkAndFixFileCppInt(filePath):
     else:
         print "have contain Copyrignt\n"
 
+# add EOF 
+    if haveEOF == False:
+        contex = contex + addEOF()
+
 #write fix context to origianl file
     fo = open(filePath, "w")
     fo.write(contex)
     fo.close()
 
 
+# research all .cpp or .h and fix cpplint
+def fixCppLint(dirname):
+    for maindir,  subdir, file_name_list in os.walk(dirname):
+        for filename in file_name_list:
+            apath = os.path.join(maindir, filename)
+            #print apath
+            checkAndFixFileCppLInt(apath)
 
-dirPath = "src/gnss/"
-for root, dirs, files in os.walk(dirPath):
-    for filesName in files:
-        newFileName = dirPath + filesName
-        checkAndFixFileCppInt(newFileName)
+
+def printHelp():
+    print "###usage###"
+    print "command format:"
+    print "./addSpaceComments -i path"
+
+
+def main():
+    # parse command line options
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "hi:", ["help"])
+    except getopt.error, msg:
+        print msg
+        print "for help use --help"
+        sys.exit(2)
+    #process options
+    if len(opts) <= 0:
+        printHelp()
+        sys.exit(0)
+    for opt, value, in opts:
+        if opt in ("-h", "--help"):
+            printHelp();
+            sys.exit(0)
+        elif opt == "-i":
+            fixCppLint(value)
+        else:
+            printHelp();
+            sys.exit(0)
+
+
+
+
+if __name__ == "__main__":
+    sys.exit(main())
 
 
 
